@@ -39,7 +39,7 @@ const RoleProvider = ( {children} ) => {
   ])
 
   return (
-    <RoleContext.Provider value={{ roles, setRoles, permissions }}>
+    <RoleContext.Provider value={{ roles, setRoles, permissions, setPermissions }}>
       {children}
     </RoleContext.Provider>
   )

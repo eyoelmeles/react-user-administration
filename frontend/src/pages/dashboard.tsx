@@ -3,6 +3,9 @@ import {UserContext} from '../context/user-context'
 import UpdateUserForm from "../components/user-form/update-user"
 import AddUserForm from "../components/user-form/add-user"
 import AddRoleForm from "../components/role-form/add-role"
+import {Sidebar} from "../layouts"
+import {Routes, Route} from 'react-router-dom'
+
 import axios from 'axios'
 
 const Dashboard = () => {
@@ -19,8 +22,18 @@ const Dashboard = () => {
   }, [])
 
   return (
-      <div>
-        <h2>Dashboard</h2>
+      <div className="flex w-screen h-screen">
+        <Sidebar />
+        <Routes>
+            <Route path="/users" element={<AddUserForm />}/>
+            <Route path="/role" element={<AddRoleForm />}/>
+        </Routes>
+      </div>
+    )
+}
+
+/**
+ *
         <AddUserForm />
         {users.map(user => (
           <div key={user.username}>
@@ -31,7 +44,6 @@ const Dashboard = () => {
         ))}
         <h2>Roles</h2>
         <AddRoleForm />
-      </div>
-    )
-}
+
+        */
 export default Dashboard

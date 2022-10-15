@@ -1,10 +1,22 @@
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
 import {RoleContext} from '../../context/role-context'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
 
 const AddRoleForm = () => {
-  const {roles, setRoles, permissions } = useContext(RoleContext)
+  const {roles, setRoles, permissions, setPermissions } = useContext(RoleContext)
+
+  useEffect(() => {
+    axios.get('api/system/permissions')
+    .then(res => {
+      console.log(res.data)
+      setPermissions(res.data)
+    })
+    .catch(err => {
+      console.log("Error while fetching permissions ", err)
+    })
+  }, [])
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
   function handleAddRole(data) {
@@ -20,7 +32,7 @@ const AddRoleForm = () => {
       setRoles([...roles, res.data])
     })
     .catch(err => {
-      console.log("Error whlile Saving Role "+ err)
+      console.log("Error while Saving Role "+ err)
     })
   }
 
