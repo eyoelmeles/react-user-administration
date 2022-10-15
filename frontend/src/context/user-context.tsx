@@ -33,8 +33,9 @@ const UserProvider = ( {children} ) => {
   function createSystemUser(user: SystemUser) {
     setSystemUser({userName: user.userName, password: user.password})
   }
+  
   return (
-    <UserContext.Provider value={{ users, setUsers, createSystemUser }}>
+    <UserContext.Provider value={{ systemUser, users, setUsers, createSystemUser }}>
       {children}
     </UserContext.Provider>
   )

@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Login from "./pages/login"
 import Dashboard from "./pages/dashboard"
-import {UserProvider} from './context/user-context'
+import {UserContext ,UserProvider} from './context/user-context'
 import {RoleProvider} from './context/role-context'
 import AssignRoleForm from './components/role-form/assign-role'
 
@@ -16,7 +16,7 @@ function App() {
             <Routes>
               <Route path="/*" element={<Dashboard />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/role" element={<AssignRoleForm />} />
+              {/* <Route path="/role" element={<AssignRoleForm />} /> */}
             </Routes>
           </RoleProvider>
         </UserProvider>

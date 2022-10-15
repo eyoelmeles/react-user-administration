@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import {HiMenuAlt3} from 'react-icons/hi'
 import {MdSpaceDashboard} from 'react-icons/md'
 import {BsFillPersonFill, BsFillInboxesFill } from 'react-icons/bs';
-import Content from './content';
 
 const Sidebar = () => {
     const [open, setOpen] = useState(true)
@@ -21,7 +20,7 @@ const Sidebar = () => {
         {
             name: 'Roles',
             icon: <BsFillInboxesFill size={26} className='flex-none' />,
-            route: '/roles',
+            route: '/role',
         },
         
 
